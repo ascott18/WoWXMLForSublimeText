@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string></string>
+	</array>
+	<key>name</key>
+	<string>WoW XML</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>begin</key>
+			<string>(&lt;)(On(?i:[a-z])+)\s*(&gt;)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.begin.xml.wow</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.script.xml.wow</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.end.xml.wow</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>source.lua.wow.script</string>
+			<key>end</key>
+			<string>(&lt;/)(On(?i:[a-z])+)\s*(&gt;)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.begin.xml.wow</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.script.xml.wow</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.end.xml.wow</string>
+				</dict>
+			</dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.lua</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>text.xml</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>text.xml.wow</string>
+	<key>uuid</key>
+	<string>c3888c72-86ce-4ad5-a50c-c5076e4bef18</string>
+</dict>
+</plist>
