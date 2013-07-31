@@ -3,6 +3,8 @@ WoW XML for Sublime Text
 
 A special syntax definition for Sublime Text 2 that will parse Lua scripts embedded within the XML files that are part of World of Warcraft interface modifications.
 
+It is untested with Sublime Text 3 but it should work just fine.
+
 Installation
 ------------
 
