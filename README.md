@@ -1,7 +1,7 @@
-WoWXMLForSublimeText
+WoW XML for Sublime Text
 ====================
 
-A special syntax definition for Sublime Text 2 that will parse Lua scripts embedded within XML files that are part of World of Warcraft interface modifications.
+A special syntax definition for Sublime Text 2 that will parse Lua scripts embedded within the XML files that are part of World of Warcraft interface modifications.
 
 Installation
 ------------
