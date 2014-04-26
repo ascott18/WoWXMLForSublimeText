@@ -5,6 +5,7 @@
 	<key>fileTypes</key>
 	<array>
 		<string>wow.xml</string>
+		<string>xml</string>
 	</array>
 	<key>name</key>
 	<string>WoW XML</string>
