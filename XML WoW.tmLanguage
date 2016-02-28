@@ -11,6 +11,7 @@
 	<string>WoW XML</string>
 	<key>patterns</key>
 	<array>
+		<!-- Matches script tags that don't have any attributes -->
 		<dict>
 			<key>begin</key>
 			<string>(&lt;)(On(?i:[a-z])+)\s*(&gt;)</string>
@@ -22,7 +23,7 @@
 					<string>punctuation.definition.tag.begin.xml.wow</string>
 				</dict>
 				<key>2</key>
-				<dict>
+				<dict> 
 					<key>name</key>
 					<string>entity.name.tag.script.xml.wow</string>
 				</dict>
@@ -32,8 +33,6 @@
 					<string>punctuation.definition.tag.end.xml.wow</string>
 				</dict>
 			</dict>
-			<key>contentName</key>
-			<string>source.lua.wow.script</string>
 			<key>end</key>
 			<string>(&lt;/)(On(?i:[a-z])+)\s*(&gt;)</string>
 			<key>endCaptures</key>
@@ -56,6 +55,105 @@
 			</dict>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>source.lua</string>
+				</dict>
+			</array>
+		</dict>
+
+		<!-- Matches script tags that do have attributes -->
+		<dict>
+			<key>begin</key>
+			<string>(&lt;)(On(?i:[a-z])+)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.begin.xml.wow</string>
+				</dict>
+				<key>2</key>
+				<dict> 
+					<key>name</key>
+					<string>entity.name.tag.script.xml.wow</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(&lt;/)(On(?i:[a-z])+)\s*(&gt;)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.begin.xml.wow</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.script.xml.wow</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.end.xml.wow</string>
+				</dict>
+			</dict>
+			<key>patterns</key>
+			<array>
+
+				<!-- Matches one or more attributes on the On... tag, followed by the closing angle bracket for the tag. -->
+				<dict>
+					<key>begin</key>
+					<string>([^\s]+?)=(['"].*?['"])</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>entity.other.attribute-name.xml.wow</string>
+						</dict>
+						<key>2</key>
+						<dict> 
+							<key>name</key>
+							<string>string.quoted.single.xml.wow</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(&gt;)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.end.xml.wow</string>
+						</dict>
+					</dict>
+					<key>patterns</key>
+					<array>
+
+						<!-- matches attributes on the On... element after the first one -->
+						<dict>
+							<key>match</key>
+							<string>\s+([^\s]+?)=(['"].*?['"])</string>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>entity.other.attribute-name.xml.wow</string>
+								</dict>
+								<key>2</key>
+								<dict> 
+									<key>name</key>
+									<string>string.quoted.double.xml.wow</string>
+								</dict>
+							</dict>
+						</dict>
+					</array>
+				</dict>
+
+				<!-- matches the lua script inside the tag. -->
 				<dict>
 					<key>include</key>
 					<string>source.lua</string>
